@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/60 backdrop-blur-xl">
       <div className="container flex items-center justify-between h-14">
-        <a href="#" className="font-mono text-sm font-semibold text-foreground tracking-tight">
+        <a href="#" className="font-mono text-sm font-semibold text-foreground tracking-tight px-4 sm:px-6 lg:px-8">
           chidera<span className="text-muted-foreground">.dev</span>
         </a>
 

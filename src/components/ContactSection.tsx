@@ -7,11 +7,11 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    window.location.href = `mailto:chideranwogu2003@gmail.com?subject=Message from ${form.name}&body=${encodeURIComponent(form.message)}%0A%0AFrom: ${form.email}`;
+    window.location.href = `mailto:dera_nwogu@yahoo.com?subject=Message from ${form.name}&body=${encodeURIComponent(form.message)}%0A%0AFrom: ${form.email}`;
   };
 
   return (
-    <section id="contact" className="py-28 border-t border-border/50">
+    <section id="contact" className="py-28 border-t border-border/50 px-4 sm:px-6 lg:px-8">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8">
           <SectionHeader label="Contact" />

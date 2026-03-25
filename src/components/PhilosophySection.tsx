@@ -10,7 +10,7 @@ const principles = [
 
 const PhilosophySection = () => {
   return (
-    <section className="py-28 border-t border-border/50">
+    <section className="py-28 border-t border-border/50 px-4 sm:px-6 lg:px-8">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8">
           <SectionHeader label="Philosophy" />
