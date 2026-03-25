@@ -2,6 +2,21 @@ import SectionHeader from "./SectionHeader";
 import ProjectCard, { type Project } from "./ProjectCard";
 
 const projects: Project[] = [
+
+{
+  name: "FX Trading Backend Platform",
+  description:
+    "A backend system for handling multi-currency wallets, real-time foreign exchange rates, and reliable currency conversions within a trading environment.",
+  tech: ["NestJS", "TypeORM", "PostgreSQL", "Redis"],
+  highlights: [
+    "Multi-currency wallet system with support for multiple balances per user",
+    "Integration with external FX rate providers for real-time exchange data",
+    "Atomic currency conversion to ensure transaction consistency and prevent race conditions",
+    "RESTful API design for trading and wallet operations",
+    "Optimized performance using caching strategies where needed",
+  ],
+},
+
   {
     name: "Multi-Tenant Collaboration SaaS Platform",
     description:
