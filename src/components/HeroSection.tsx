@@ -1,5 +1,5 @@
 import { Github, Linkedin, ArrowDown } from "lucide-react";
-import heroImage from "../assets/dera-hero.png.png"
+import heroImage from "../assets/hero-dera.png.png"
 
 const navLinks = [
   { label: "Stack", href: "#stack" },
@@ -38,7 +38,7 @@ const HeroSection = () => {
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground tracking-tighter leading-[0.95] mb-6">
+          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground tracking-tighter leading-[0.95] mb-6">
             Welcome to My
             <br />
             Engineering Space<span className="text-gradient">.</span>
@@ -48,7 +48,7 @@ const HeroSection = () => {
             I am a Backend Focused Engineer.
           </p>
           <p className="text-sm text-muted-foreground/70 leading-relaxed mb-10 max-w-xl">
-            Most of my work lives behind the scenes - powering applications, designing architectures, 
+            Most of my work lives behind the scenes - powering applications, designing architectures 
             and making systems reliable at scale.
           </p>
 

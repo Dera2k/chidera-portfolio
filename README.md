@@ -1,73 +1,51 @@
-# React + TypeScript + Vite
+# Chidera Nwogu — Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal portfolio. This site highlights my projects, skills, experience, and current focus areas as a backend software engineer.
 
-Currently, two official plugins are available:
+## About Me
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+I'm Chidera Nwogu, a backend engineer with 2+ years of experience building reliable systems using Node.js, Go, PostgreSQL, Redis, Kafka, and more. I enjoy designing clean, efficient, and scalable solutions, and continuously improving my craft.
 
-## React Compiler
+**Location:** Abuja, Nigeria  
+**Email:** your.email@example.com  
+**GitHub:** [Dera2k](https://github.com/Dera2k)  
+**LinkedIn:** [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Featured Projects
 
-## Expanding the ESLint configuration
+- **Project 1:** Short description of a standout project.
+- **Project 2:** Another project demonstrating your skills or problem-solving.
+- **Project 3:** A personal or open-source project showing your tech stack.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+(Projects link to live demos or GitHub repositories.)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+| Category  | Tools                                 |
+| --------- | ------------------------------------- |
+| Backend   | Node.js, Go, PostgreSQL, Redis, Kafka |
+| Frontend  | React, Vue, TypeScript, Tailwind CSS  |
+| Dev Tools | Vite, Git, Docker, CI/CD              |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Experience Highlights
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Company A** — Role, key contributions, duration.
+- **Company B** — Role, key contributions, duration.
+- **Freelance / Personal Projects** — Projects demonstrating problem-solving, scale, or automation.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Philosophy & Focus
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+I build with reliability, simplicity, and performance in mind. Currently focusing on:
+
+- Distributed systems and backend optimization
+- Scalable architecture patterns
+- Open-source contributions and personal projects
+
+## Get in Touch
+
+- **Contact Form:** [Reach me via the portfolio](mailto:your.email@example.com)
+- **Socials:** GitHub, LinkedIn, Twitter (if applicable)
+
+---
+
+> This portfolio is the best place to explore my work, see my projects, and get a sense of my skills and approach to software engineering.

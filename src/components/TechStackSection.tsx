@@ -7,7 +7,7 @@ const categories = [
   },
   {
     title: "Frontend",
-    items: ["React"],
+    items: ["React", "Vue", "Html & Css", "Tailwind"],
   },
   {
     title: "Databases & Data",
@@ -15,7 +15,7 @@ const categories = [
   },
   {
     title: "Messaging & Architecture",
-    items: ["Apache Kafka", "Event-Driven Systems", "REST API Architecture"],
+    items: ["Apache Kafka", "Event-Driven Systems", "Data-Driven Systems", "REST API Architecture"],
   },
   {
     title: "Cloud & DevOps",

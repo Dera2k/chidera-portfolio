@@ -36,7 +36,7 @@ const ArchitectureSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8">
           <SectionHeader label="Architecture" title="Engineering approach" />
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-2">
+            <h3 className="font-display text-lg font-semibold text-foreground mb-2">
               System Architecture & Engineering Approach
             </h3>
             <p className="text-sm text-muted-foreground mb-8 max-w-lg leading-relaxed">

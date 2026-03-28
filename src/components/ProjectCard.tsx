@@ -24,7 +24,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       className="group block p-6 rounded-xl border border-border/50 bg-card hover:border-border hover:bg-accent/30 transition-all duration-300"
     >
       <div className="flex items-start justify-between gap-4 mb-3">
-        <h3 className="text-base font-semibold text-foreground">
+        <h3 className="font-display text-base font-semibold text-foreground">
           {project.name}
         </h3>
         {project.github && (

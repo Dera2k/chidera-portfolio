@@ -36,7 +36,7 @@ const ExperienceSection = () => {
             {experiences.map((exp) => (
               <div key={exp.company}>
                 <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
-                  <h3 className="text-base font-semibold text-foreground">{exp.company}</h3>
+                  <h3 className="font-display text-base font-semibold text-foreground">{exp.company}</h3>
                   <span className="text-xs font-mono text-muted-foreground/60">{exp.period}</span>
                 </div>
                 <p className="text-sm text-muted-foreground mb-4">{exp.role}</p>
