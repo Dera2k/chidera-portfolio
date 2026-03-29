@@ -1,4 +1,5 @@
-import { useState, useRef, FormEvent, ChangeEvent } from "react";
+import { useState, useRef, } from "react";
+import type { FormEvent, ChangeEvent } from "react";
 import { Github, Linkedin, Mail, Send } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import SectionHeader from "./SectionHeader";
