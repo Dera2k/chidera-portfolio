@@ -135,13 +135,7 @@ const ContactSection = () => {
               </p>
 
               <div className="space-y-3">
-                <a
-                  href="mailto:chideranwogu2003@gmail.com"
-                  className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Mail size={16} className="shrink-0" />
-                  chideranwogu2003@gmail.com
-                </a>
+                
                 <a
                   href="mailto:dera_nwogu@yahoo.com"
                   className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
