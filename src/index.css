@@ -107,4 +107,30 @@
       hsl(var(--gradient-end))
     );
   }
+
+  .shimmer-text {
+    background: linear-gradient(
+      110deg,
+      hsl(var(--foreground)) 0%,
+      hsl(var(--foreground)) 35%,
+      hsl(var(--gradient-start)) 50%,
+      hsl(var(--foreground)) 65%,
+      hsl(var(--foreground)) 100%
+    );
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 2s ease-in-out infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: -100% 50%; }
+}
+
+@keyframes heroFadeIn {
+  0% { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 1; transform: translateY(0); }
 }

@@ -1,5 +1,6 @@
 import { Github, Linkedin, ArrowDown } from "lucide-react";
 import heroImage from "../assets/hero-dera.png.png"
+import { useState, useEffect } from "react";
 
 const navLinks = [
   { label: "Stack", href: "#stack" },
@@ -9,8 +10,14 @@ const navLinks = [
 ];
 
 const HeroSection = () => {
+  const [shimmerActive, setShimmerActive] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => setShimmerActive(false), 8000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <section className="min-h-screen flex items-center pt-14 relative overflow-hidden">
+    <section className="min-h-screen flex items-center pt-6 relative overflow-hidden">
       {/* Subtle grid background */}
       <div className="absolute inset-0 bg-[linear-gradient(hsl(var(--border)/0.3)_1px,transparent_1px),linear-gradient(90deg,hsl(var(--border)/0.3)_1px,transparent_1px)] bg-[:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black_20%,transparent_100%)]" />
 
@@ -38,19 +45,26 @@ const HeroSection = () => {
             </span>
           </div>
 
-          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground tracking-tighter leading-[0.95] mb-6">
-            Welcome to My
-            <br />
-            Engineering Space<span className="text-gradient">.</span>
+          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tighter leading-[0.95] mb-6 animate-[heroFadeIn_1.2s_ease-out_both]">
+            <span className={`inline-block ${shimmerActive ? 'shimmer-text' : 'text-foreground transition-colors duration-300'}`}>
+              Welcome to My
+              <br />
+              Engineering Space
+            </span>
+            <span className="text-gradient animate-pulse">.</span>
           </h1>
 
           <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-4 max-w-xl">
             I am a Backend Focused Engineer.
           </p>
+
+          <div className="animate-[heroFadeIn_1s_ease-out_0.6s_both]">
+
           <p className="text-sm text-muted-foreground/70 leading-relaxed mb-10 max-w-xl">
             Most of my work lives behind the scenes - powering applications, designing architectures 
             and making systems reliable at scale.
           </p>
+          </div>
 
           <div className="flex flex-wrap items-center gap-3 mb-8">
             <a
