@@ -3,7 +3,7 @@ import SectionHeader from "./SectionHeader";
 const categories = [
   {
     title: "Backend & Languages",
-    items: ["Golang", "Node.js", "TypeScript", "JavaScript", "Python", "Express.js", "NestJS"],
+    items: ["Node.js", "TypeScript", "Python", "Express.js", "NestJS", "PHP", "Laravel"],
   },
   {
     title: "Frontend",
@@ -23,7 +23,7 @@ const categories = [
   },
   {
     title: "Developer Tools",
-    items: ["GitHub", "Swagger", "Postman", "Third-Party API Integrations", "Payment Gateway Integrations"],
+    items: ["GitHub", "Swagger", "Postman", "Compodoc", "GitLab"],
   },
 ];
 

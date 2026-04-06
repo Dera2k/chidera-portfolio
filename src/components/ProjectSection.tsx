@@ -15,6 +15,7 @@ const projects: Project[] = [
     "RESTful API design for trading and wallet operations",
     "Optimized performance using caching strategies where needed",
   ],
+  github: "https://github.com/Dera2k/Fx-Trading-Backend",
 },
 
   {
@@ -29,7 +30,39 @@ const projects: Project[] = [
       "Kafka-based asynchronous background processing",
       "PostgreSQL relational database modelling",
     ],
+    github: "https://github.com/Dera2k/Multi-Tenant-SaaS",
   },
+
+  {
+  name: "Artistack",
+  description:
+    "An art organizer tool designed to help artists catalog, manage, and showcase their work efficiently across projects and collections.",
+  tech: ["PHP", "Laravel", "PostgreSQL", "Redis"],
+  highlights: [
+    "Organize and categorize artwork with flexible tagging and collections",
+    "Role-based access control for collaborators and team members",
+    "Redis caching for improved performance on frequently accessed galleries",
+    "PostgreSQL relational database design for reliable and scalable storage",
+    "Laravel backend with RESTful API endpoints for smooth integration with frontends",
+  ],
+  github: "https://github.com/Dera2k/Artistack",
+},
+
+  {
+  name: "Wallet & Transaction Service for A Lending Platform",
+  description:
+    "A backend wallet service built to handle user accounts, secure fund operations and transaction tracking for a lending platform.",
+  tech: ["Node.js", "Express", "TypeScript", "MySQL", "Knex.js"],
+  highlights: [
+    "Atomic wallet operations (fund, transfer, withdraw) using database transactions",
+    "JWT-based authentication and protected routes",
+    "Layered architecture (Controller → Service → Repository) for scalability",
+    "MySQL schema design with DECIMAL handling for financial accuracy",
+    "Input validation using Joi with request sanitization middleware",
+    "Transaction history tracking with optimized queries",
+  ],
+  github: "https://github.com/Dera2k/Money-Wallet",
+},
   {
     name: "Feedback System",
     description:
@@ -40,6 +73,7 @@ const projects: Project[] = [
       "Full CRUD feedback management",
       "Responsive frontend interface",
     ],
+    github: "https://github.com/Dera2k/feedback_system",
   },
   {
     name: "Doctor Portfolio Website",
@@ -51,6 +85,7 @@ const projects: Project[] = [
       "Appointment inquiry form",
       "Contact integration with clean UI",
     ],
+    github: "https://github.com/Dera2k/Doc-Con",
   },
 ];
 
