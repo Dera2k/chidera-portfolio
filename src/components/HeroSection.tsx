@@ -1,6 +1,5 @@
 import { Github, Linkedin, ArrowDown } from "lucide-react";
 import heroImage from "../assets/hero-dera.png.png"
-import { useState, useEffect } from "react";
 
 const navLinks = [
   { label: "Stack", href: "#stack" },
@@ -10,16 +9,11 @@ const navLinks = [
 ];
 
 const HeroSection = () => {
-  const [shimmerActive, setShimmerActive] = useState(true);
-  useEffect(() => {
-    const timer = setTimeout(() => setShimmerActive(false), 8000);
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <section className="min-h-screen flex items-center pt-6 relative overflow-hidden">
       {/* Subtle grid background */}
-      <div className="absolute inset-0 bg-[linear-gradient(hsl(var(--border)/0.3)_1px,transparent_1px),linear-gradient(90deg,hsl(var(--border)/0.3)_1px,transparent_1px)] bg-[:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black_20%,transparent_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(hsl(var(--border)/0.3)_1px,transparent_1px),linear-gradient(90deg,hsl(var(--border)/0.3)_1px,transparent_1px)] bg-[:64px_64px] mask-[radial-gradient(ellipse_60%_60%_at_50%_50%,black_20%,transparent_100%)]" />
 
       {/* Hero image — positioned on the right, bleeds into background */}
       <div className="absolute right-0 top-0 bottom-0 w-[45%] hidden lg:block">
@@ -46,7 +40,7 @@ const HeroSection = () => {
           </div>
 
           <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tighter leading-[0.95] mb-6 animate-[heroFadeIn_1.2s_ease-out_both]">
-            <span className={`inline-block ${shimmerActive ? 'shimmer-text' : 'text-foreground transition-colors duration-300'}`}>
+            <span className="inline-block shimmer-text">
               Welcome to My
               <br />
               Engineering Space
