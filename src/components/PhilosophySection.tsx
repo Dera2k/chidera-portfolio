@@ -10,12 +10,12 @@ const principles = [
 
 const PhilosophySection = () => {
   return (
-    <section className="py-28 border-t border-border/50 px-4 sm:px-6 lg:px-8">
+    <section className="section-shell">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8">
-          <SectionHeader label="Philosophy" />
+        <div className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-10 lg:gap-16">
+          <SectionHeader label="Operating_Principles" index="07" />
           <div className="max-w-xl">
-            <h3 className="font-display text-lg font-semibold text-foreground mb-6">
+            <h3 className="font-display text-lg font-bold uppercase text-foreground mb-6">
               How I Approach Backend Engineering
             </h3>
             <ul className="space-y-4">

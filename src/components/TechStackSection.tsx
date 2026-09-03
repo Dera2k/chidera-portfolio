@@ -2,50 +2,43 @@ import SectionHeader from "./SectionHeader";
 
 const categories = [
   {
-    title: "Backend & Languages",
-    items: ["Node.js", "TypeScript", "Python", "Express.js", "NestJS", "PHP", "Laravel"],
+    title: "Languages & Frameworks",
+    items: ["TypeScript", "JavaScript", "PHP", "Node.js", "NestJS", "Express", "Laravel", "Vue.js", "React", "React Native"],
   },
   {
-    title: "Frontend",
-    items: ["React", "Vue", "Html & Css", "Tailwind"],
-  },
-  {
-    title: "Databases & Data",
-    items: ["PostgreSQL", "MySQL", "Redis", "Database Modelling"],
-  },
-  {
-    title: "Messaging & Architecture",
-    items: ["Apache Kafka", "Event-Driven Systems", "Data-Driven Systems", "REST API Architecture"],
+    title: "Databases & Messaging",
+    items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Apache Kafka"],
   },
   {
     title: "Cloud & DevOps",
-    items: ["AWS (EC2, S3, DynamoDB, Lambda)", "Docker", "CI/CD Pipelines"],
+    items: ["AWS (S3, EC2)", "Docker", "CI/CD"],
   },
   {
-    title: "Developer Tools",
-    items: ["GitHub", "Swagger", "Postman", "Compodoc", "GitLab"],
+    title: "Core Competencies",
+    items: ["REST API Design", "Mobile Development", "System Design", "Authentication & Authorization", "Database Design"],
   },
 ];
 
 const TechStackSection = () => {
   return (
-    <section id="stack" className="py-28 border-t border-border/50 px-4 sm:px-6 lg:px-8">
+    <section id="stack" className="section-shell">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8">
-          <SectionHeader label="Stack" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {categories.map((cat) => (
-              <div key={cat.title}>
-                <h3 className="text-[13px] font-medium text-foreground mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-10 lg:gap-16">
+          <SectionHeader label="Tech_Stack" index="03" title="Tools I reach for in production" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 border-l border-t border-border">
+            {categories.map((cat, index) => (
+              <div key={cat.title} className="group min-h-52 p-6 border-r border-b border-border bg-card/60 hover:bg-accent/40 transition-colors">
+                <span className="block font-mono text-[10px] text-primary mb-6">0x{String(index + 1).padStart(2, "0")}</span>
+                <h3 className="font-display text-xs font-bold uppercase text-foreground mb-4">
                   {cat.title}
                 </h3>
                 <ul className="space-y-2.5">
                   {cat.items.map((item) => (
                     <li
                       key={item}
-                      className="text-sm text-muted-foreground font-mono flex items-center gap-2"
+                      className="text-xs text-muted-foreground font-mono flex items-center gap-2 leading-relaxed"
                     >
-                      <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
+                      <span className="w-1 h-1 bg-primary/60" />
                       {item}
                     </li>
                   ))}

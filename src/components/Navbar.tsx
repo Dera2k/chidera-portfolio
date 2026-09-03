@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import ThemeToggle from "./ThemeToogle";
+import ThemeToggle from "./ThemeToggle";
 
 const links = ["About", "Stack", "Projects", "Architecture", "Experience", "Contact"];
 
@@ -8,10 +8,10 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/60 backdrop-blur-xl">
-      <div className="container flex items-center justify-between h-14">
-        <a href="#" className="font-mono text-sm font-semibold text-foreground tracking-tight px-4 sm:px-6 lg:px-8">
-          chidera<span className="text-muted-foreground">.dev</span>
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-xl">
+      <div className="container flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
+        <a href="#" className="font-mono text-xs font-bold text-foreground uppercase tracking-[0.16em]">
+          CN<span className="text-primary">//</span>Systems
         </a>
 
         {/* Desktop */}
@@ -20,7 +20,7 @@ const Navbar = () => {
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="px-3 py-1.5 text-[13px] text-muted-foreground hover:text-foreground rounded-md hover:bg-accent transition-all duration-200"
+              className="px-3 py-2 font-mono text-[11px] uppercase text-muted-foreground hover:text-primary transition-colors duration-200"
             >
               {item}
             </a>
@@ -35,7 +35,7 @@ const Navbar = () => {
           <ThemeToggle />
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent transition-all"
+            className="grid h-9 w-9 place-items-center border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors"
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X size={18} /> : <Menu size={18} />}
@@ -45,14 +45,14 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-border/50 bg-background/95 backdrop-blur-xl">
+        <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-xl">
           <div className="container py-4 flex flex-col gap-1">
             {links.map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
                 onClick={() => setMobileOpen(false)}
-                className="px-3 py-2.5 text-sm text-muted-foreground hover:text-foreground rounded-md hover:bg-accent transition-all"
+                className="px-3 py-2.5 font-mono text-xs uppercase text-muted-foreground hover:text-primary hover:bg-accent transition-all"
               >
                 {item}
               </a>

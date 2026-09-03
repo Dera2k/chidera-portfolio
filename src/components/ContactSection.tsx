@@ -1,144 +1,41 @@
-import { useState, useRef, } from "react";
-import type { FormEvent, ChangeEvent } from "react";
-import { Github, Linkedin, Mail, Send } from "lucide-react";
-import emailjs from "@emailjs/browser";
+import { useState } from "react";
+import type { FormEvent } from "react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 
-// Initialize EmailJS with environment variable
-emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
-
-interface FormState {
-  name: string;
-  email: string;
-  message: string;
-}
-
-interface FormErrors {
-  name?: string;
-  email?: string;
-  message?: string;
-}
-
-interface Toast {
-  type: "success" | "error";
-  message: string;
-}
-
 const ContactSection = () => {
-  const formRef = useRef<HTMLFormElement>(null);
-  const [form, setForm] = useState<FormState>({ name: "", email: "", message: "" });
-  const [errors, setErrors] = useState<FormErrors>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [toast, setToast] = useState<Toast | null>(null);
-  const [lastSubmitTime, setLastSubmitTime] = useState(0);
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
 
-  // Show success/error message
-  const showToast = (type: "success" | "error", message: string) => {
-    setToast({ type, message });
-    setTimeout(() => setToast(null), 4000);
-  };
-
-  // Validate form inputs
-  const validateForm = (): FormErrors => {
-    const newErrors: FormErrors = {};
-
-    if (!form.name.trim() || form.name.length < 2) {
-      newErrors.name = "Name must be at least 2 characters";
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(form.email)) {
-      newErrors.email = "Please enter a valid email";
-    }
-
-    if (!form.message.trim() || form.message.length < 10) {
-      newErrors.message = "Message must be at least 10 characters";
-    }
-
-    // Prevent URLs
-    if (form.message.match(/https?:\/\/|www\./gi)) {
-      newErrors.message = "URLs not allowed in messages";
-    }
-
-    // Prevent spam (too many special characters)
-    const specialChars = (form.message.match(/[!@#$%^&*()_+=\-[\]{};':"\\|,.<>/?]/g) || []).length;
-    if (specialChars / form.message.length > 0.3) {
-      newErrors.message = "Too many special characters";
-    }
-
-    return newErrors;
-  };
-
-  // Prevent rapid submissions
-  const isRateLimited = (): boolean => {
-    const now = Date.now();
-    if (now - lastSubmitTime < 3000) {
-      showToast("error", "Wait a few seconds before sending again");
-      return true;
-    }
-    return false;
-  };
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    if (isRateLimited()) return;
-
-    const newErrors = validateForm();
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
-
-    setErrors({});
-    setIsSubmitting(true);
-
-    try {
-      await emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        formRef.current as HTMLFormElement
-      );
-
-      setForm({ name: "", email: "", message: "" });
-      setLastSubmitTime(Date.now());
-      showToast("success", "Message sent! I'll get back to you soon.");
-    } catch (error) {
-      console.error("Error sending email:", error);
-      showToast("error", "Failed to send message. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setForm({ ...form, [name as keyof FormState]: value });
-
-    // Clear error when user starts typing
-    if (errors[name as keyof FormErrors]) {
-      setErrors({ ...errors, [name]: "" });
-    }
+    window.location.href = `mailto:chideranwogu2003@gmail.com?subject=Message from ${encodeURIComponent(form.name)}&body=${encodeURIComponent(form.message)}%0A%0AFrom: ${encodeURIComponent(form.email)}`;
   };
 
   return (
-    <section id="contact" className="py-28 border-t border-border/50 px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="section-shell">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8">
-          <SectionHeader label="Contact" />
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Info */}
+        <div className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-10 lg:gap-16">
+          <SectionHeader label="Initialize_Contact" index="08" />
+          <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-20">
+            {/* Info */}
             <div className="space-y-6">
+              <h3 className="font-display text-2xl sm:text-3xl font-bold uppercase text-foreground leading-tight">Let's build something reliable_</h3>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-                Have a project in mind, want to collaborate, or just want to say hello? 
+                Have a project in mind, want to collaborate, or just want to say hello?
                 Feel free to reach out.
               </p>
 
               <div className="space-y-3">
-                
+                <a
+                  href="mailto:chideranwogu2003@gmail.com"
+                  className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group break-all"
+                >
+                  <Mail size={16} className="shrink-0" />
+                  chideranwogu2003@gmail.com
+                </a>
                 <a
                   href="mailto:dera_nwogu@yahoo.com"
-                  className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors break-all"
                 >
                   <Mail size={16} className="shrink-0" />
                   dera_nwogu@yahoo.com
@@ -150,7 +47,7 @@ const ContactSection = () => {
                   href="https://github.com/Dera2k"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent transition-all"
+                  className="grid h-10 w-10 place-items-center border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all"
                   aria-label="GitHub"
                 >
                   <Github size={18} />
@@ -159,7 +56,7 @@ const ContactSection = () => {
                   href="https://www.linkedin.com/in/chidera-nwogu-93944a258/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent transition-all"
+                  className="grid h-10 w-10 place-items-center border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all"
                   aria-label="LinkedIn"
                 >
                   <Linkedin size={18} />
@@ -168,100 +65,59 @@ const ContactSection = () => {
             </div>
 
             {/* Form */}
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
-              {/* Name */}
+            <form onSubmit={handleSubmit} className="space-y-4 blueprint-surface border border-border p-5 sm:p-8">
               <div>
                 <label htmlFor="name" className="block text-xs font-mono text-muted-foreground mb-1.5">
                   Name
                 </label>
                 <input
                   id="name"
-                  name="name"
                   type="text"
+                  required
                   value={form.name}
-                  onChange={handleChange}
-                  disabled={isSubmitting}
-                  className={`w-full px-4 py-2.5 text-sm rounded-lg border bg-card text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:ring-1 transition-colors disabled:opacity-50 ${
-                    errors.name ? "border-red-500 focus:ring-red-500" : "border-border focus:ring-ring"
-                  }`}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  className="w-full px-4 py-3 text-sm border border-border bg-background text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:ring-1 focus:ring-ring transition-colors"
                   placeholder="Your name"
                 />
-                {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
               </div>
-
-              {/* Email */}
               <div>
                 <label htmlFor="email" className="block text-xs font-mono text-muted-foreground mb-1.5">
                   Email
                 </label>
                 <input
                   id="email"
-                  name="email"
                   type="email"
+                  required
                   value={form.email}
-                  onChange={handleChange}
-                  disabled={isSubmitting}
-                  className={`w-full px-4 py-2.5 text-sm rounded-lg border bg-card text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:ring-1 transition-colors disabled:opacity-50 ${
-                    errors.email ? "border-red-500 focus:ring-red-500" : "border-border focus:ring-ring"
-                  }`}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  className="w-full px-4 py-3 text-sm border border-border bg-background text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:ring-1 focus:ring-ring transition-colors"
                   placeholder="you@example.com"
                 />
-                {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
               </div>
-
-              {/* Message */}
               <div>
                 <label htmlFor="message" className="block text-xs font-mono text-muted-foreground mb-1.5">
                   Message
                 </label>
                 <textarea
                   id="message"
-                  name="message"
+                  required
                   rows={4}
                   value={form.message}
-                  onChange={handleChange}
-                  disabled={isSubmitting}
-                  className={`w-full px-4 py-2.5 text-sm rounded-lg border bg-card text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:ring-1 resize-none transition-colors disabled:opacity-50 ${
-                    errors.message ? "border-red-500 focus:ring-red-500" : "border-border focus:ring-ring"
-                  }`}
+                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                  className="w-full px-4 py-3 text-sm border border-border bg-background text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:ring-1 focus:ring-ring resize-none transition-colors"
                   placeholder="What's on your mind?"
                 />
-                {errors.message && <p className="mt-1 text-xs text-red-500">{errors.message}</p>}
               </div>
-
-              {/* Submit Button */}
               <button
                 type="submit"
-                disabled={isSubmitting}
-                className="w-full px-6 py-2.5 text-sm font-medium rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="px-6 py-3 font-mono text-xs font-bold uppercase bg-primary text-primary-foreground hover:opacity-90 transition-opacity"
               >
-                {isSubmitting ? (
-                  <>
-                    <span className="inline-block animate-spin">⏳</span>
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    <Send size={16} />
-                    Send Message
-                  </>
-                )}
+                Send Message
               </button>
             </form>
           </div>
         </div>
       </div>
-
-      {/* Toast Notification */}
-      {toast && (
-        <div className={`fixed bottom-4 right-4 z-50 px-4 py-3 rounded-lg shadow-lg border ${
-          toast.type === "success"
-            ? "bg-green-500/10 border-green-500/30 text-green-700"
-            : "bg-red-500/10 border-red-500/30 text-red-700"
-        }`}>
-          <p className="text-sm font-medium">{toast.message}</p>
-        </div>
-      )}
     </section>
   );
 };

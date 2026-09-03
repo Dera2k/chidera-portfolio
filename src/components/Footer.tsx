@@ -1,11 +1,11 @@
 const Footer = () => {
   return (
-    <footer className="py-12 border-t border-border/50">
-      <div className="container flex flex-col sm:flex-row items-center justify-between gap-4">
+    <footer className="py-10 border-t border-border/70">
+      <div className="container px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-xs text-muted-foreground font-mono">
           © {new Date().getFullYear()} Chidera Nwogu
         </p>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-6 font-mono uppercase">
           <a
             href="https://github.com/Dera2k"
             target="_blank"

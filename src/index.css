@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
-  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "Rubik", system-ui, sans-serif;
+  --font-mono: "Space Mono", monospace;
+  --font-display: "Space Mono", monospace;
 
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
@@ -27,47 +26,29 @@
   --radius-sm: calc(var(--radius) - 4px);
 }
 
+@variant dark (&:where(.dark, .dark *));
 
 @layer base {
   :root {
-    --background: 0 0% 99%;
-    --foreground: 0 0% 9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
-    --accent: 0 0% 96%;
-    --accent-foreground: 0 0% 9%;
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 0 0% 9%;
-    --radius: 0.5rem;
-    --gradient-start: 210 100% 60%;
-    --gradient-end: 280 80% 60%;
+    --background: 210 25% 99%; --foreground: 198 29% 18%;
+    --card: 210 26% 97%; --card-foreground: 198 29% 18%;
+    --primary: 181 80% 30%; --primary-foreground: 0 0% 100%;
+    --secondary: 213 24% 93%; --secondary-foreground: 198 29% 18%;
+    --muted: 213 24% 93%; --muted-foreground: 200 12% 42%;
+    --accent: 181 50% 92%; --accent-foreground: 181 80% 24%;
+    --border: 207 21% 84%; --input: 207 21% 84%; --ring: 181 80% 30%;
+    --radius: 0.25rem; --grid: 198 29% 18%; --signal: 181 80% 30%;
   }
 
   .dark {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 93%;
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 93%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 4%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 93%;
-    --muted: 0 0% 10%;
-    --muted-foreground: 0 0% 50%;
-    --accent: 0 0% 12%;
-    --accent-foreground: 0 0% 93%;
-    --border: 0 0% 14%;
-    --input: 0 0% 14%;
-    --ring: 0 0% 80%;
-    --gradient-start: 210 100% 60%;
-    --gradient-end: 280 80% 60%;
+    --background: 195 18% 6%; --foreground: 204 20% 91%;
+    --card: 195 17% 8%; --card-foreground: 204 20% 91%;
+    --primary: 178 67% 48%; --primary-foreground: 195 18% 6%;
+    --secondary: 196 14% 12%; --secondary-foreground: 204 20% 91%;
+    --muted: 196 14% 12%; --muted-foreground: 203 10% 59%;
+    --accent: 180 32% 14%; --accent-foreground: 178 67% 58%;
+    --border: 196 13% 18%; --input: 196 13% 18%; --ring: 178 67% 48%;
+    --grid: 204 20% 91%; --signal: 178 67% 48%;
   }
 }
 
@@ -80,14 +61,14 @@
     color: hsl(var(--foreground));
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
-    background-image:
-      radial-gradient(circle, hsl(var(--foreground) / 0.04) 1px, transparent 1px);
-    background-size: 24px 24px;
+    background-image: linear-gradient(hsl(var(--grid) / 0.035) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--grid) / 0.035) 1px, transparent 1px), radial-gradient(circle, hsl(var(--signal) / 0.12) 1px, transparent 1px);
+    background-size: 72px 72px, 72px 72px, 18px 18px;
+    transition: background-color 300ms ease, color 300ms ease;
   }
+
   .dark body {
-    background-image:
-      radial-gradient(circle, hsl(var(--foreground) / 0.06) 1px, transparent 1px);
-    background-size: 24px 24px;
+    background-image: linear-gradient(hsl(var(--grid) / 0.035) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--grid) / 0.035) 1px, transparent 1px), radial-gradient(circle, hsl(var(--signal) / 0.1) 1px, transparent 1px);
+    background-size: 72px 72px, 72px 72px, 18px 18px;
   }
 }
 
@@ -95,17 +76,6 @@
 
   .font-display {
     font-family: var(--font-display);
-  }
-
-  .text-gradient {
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    background-image: linear-gradient(
-      135deg,
-      hsl(var(--gradient-start)),
-      hsl(var(--gradient-end))
-    );
   }
 
   .shimmer-text {
@@ -123,8 +93,15 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: shimmer 2s ease-in-out infinite;
+    animation: shimmer 5s ease-in-out infinite;
   }
+
+  .blueprint-surface { background-color: hsl(var(--card) / 0.72); background-image: linear-gradient(hsl(var(--grid) / 0.05) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--grid) / 0.05) 1px, transparent 1px); background-size: 24px 24px; }
+  .section-shell { position: relative; border-top: 1px solid hsl(var(--border) / 0.7); padding: 7rem 1rem; }
+  @media (min-width: 640px) { .section-shell { padding-inline: 1.5rem; } }
+  @media (min-width: 1024px) { .section-shell { padding-inline: 2rem; } }
+
+  .container { width: 100%; margin-inline: auto; max-width: 1280px; }
 }
 
 .dark .shimmer-text {
@@ -154,4 +131,8 @@
 @keyframes heroFadeIn {
   0% { opacity: 0; transform: translateY(16px); }
   100% { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
